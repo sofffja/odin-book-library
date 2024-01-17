@@ -42,10 +42,10 @@ function createBookDiv(title, author, pages, read) {
   
   div.classList.add('book');
   
-  titleH2.innerText = title ? title : 'Title';
+  titleH2.innerText = title ? title : 'Unknown title';
   titleH2.classList.add('title');
   
-  authorP.innerText = author ? author : 'Author';
+  authorP.innerText = author ? author : 'Unknown author';
   authorP.classList.add('author');
   
   pagesP.innerText = pages ? `${pages} pages` : 'Unknown pages';
