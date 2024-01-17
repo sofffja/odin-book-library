@@ -14,22 +14,23 @@ const authorInput = document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const readInput = document.querySelector('#read');
 
-function Book(title, author, pages, read, id) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.id = id;
 }
 
 Book.prototype.toggleRead = function() {
   this.read = !this.read;
 }
 
+//SAMPLE BOOKS
 myLibrary.push(new Book('Utopia', "Thomas More", 111, false))
 myLibrary.push(new Book('The Dispossessed', "Ursula K. Le Guin", 333, false))
 displayLibrary();
 
+//LIBRARY
 function createBookDiv(title, author, pages, read) {
   const div = document.createElement('div');
   const titleH2 = document.createElement('h2');
@@ -110,6 +111,15 @@ function setDataAttributes() {
   }
 }
 
+function calcStats() {
+  totalStat.innerText = `${myLibrary.length} books`;
+  let readCount = 0;
+  for (let book of myLibrary) {
+    if (book.read) readCount++
+  }
+  readStat.innerText = `${readCount} read`
+}
+
 //MODAL DIALOG
 addBookBtn.addEventListener('click', () => {
   dialog.showModal();
@@ -129,20 +139,3 @@ submitBookBtn.addEventListener('click', (e) => {
   dialog.close();
   document.querySelector('form').reset();
 })
-
-//OTHER FUNCTIONS
-function logLibrary() {
-  console.log(`BOOKS`)
-  for (let book of myLibrary) {
-    console.log(`${myLibrary.indexOf(book)}: ${book.title}`)
-  }
-}
-
-function calcStats() {
-  totalStat.innerText = `${myLibrary.length} books`;
-  let readCount = 0;
-  for (let book of myLibrary) {
-    if (book.read) readCount++
-  }
-  readStat.innerText = `${readCount} read`
-}
