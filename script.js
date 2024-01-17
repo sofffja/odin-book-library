@@ -26,8 +26,8 @@ Book.prototype.toggleRead = function() {
   this.read = !this.read;
 }
 
-myLibrary.push(new Book('uno', "SDA Lida", 456, true))
-myLibrary.push(new Book('dos', "Bb Abc", 1000000, false))
+myLibrary.push(new Book('Utopia', "Thomas More", 111, false))
+myLibrary.push(new Book('The Dispossessed', "Ursula K. Le Guin", 333, false))
 displayLibrary();
 
 function createBookDiv(title, author, pages, read) {
