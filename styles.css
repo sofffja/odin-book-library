@@ -20,6 +20,11 @@ html {
   color: inherit;
 }
 
+::selection {
+  background-color: var(--text);
+  color: var(--light);
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg);
